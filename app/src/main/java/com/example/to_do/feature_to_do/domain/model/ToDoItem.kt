@@ -1,4 +1,10 @@
 package com.example.to_do.feature_to_do.domain.model
 
-class ToDoItem {
-}
+data class ToDoItem(
+    val title: String,
+    val description: String,
+    val timestamp: Long,
+    val completed: Boolean,
+    val archived: Boolean,
+    val id: Int?
+)
