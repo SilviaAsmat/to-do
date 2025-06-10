@@ -2,6 +2,9 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
+    id("com.google.devtools.ksp")
+    id("com.google.dagger.hilt.android")
+    id("kotlin-kapt")
 }
 
 android {
@@ -28,11 +31,11 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_11
-        targetCompatibility = JavaVersion.VERSION_11
+        sourceCompatibility = JavaVersion.VERSION_21
+        targetCompatibility = JavaVersion.VERSION_21
     }
     kotlinOptions {
-        jvmTarget = "11"
+        jvmTarget = "21"
     }
     buildFeatures {
         compose = true
@@ -40,7 +43,7 @@ android {
 }
 
 dependencies {
-
+    // Pre-existing dependencies
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.activity.compose)
@@ -56,4 +59,38 @@ dependencies {
     androidTestImplementation(libs.androidx.ui.test.junit4)
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
+
+    // Compose dependencies
+    implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.6.2")
+    implementation("androidx.navigation:navigation-compose:2.7.4")
+    implementation("androidx.compose.material:material-icons-extended:1.5.3")
+    implementation("androidx.hilt:hilt-navigation-compose:1.0.0")
+
+    // Coroutines
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.3")
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3")
+
+    //Dagger - Hilt
+    val hilt = "2.50"
+    implementation("com.google.dagger:hilt-android:$hilt")
+    kapt("androidx.hilt:hilt-compiler:1.1.0-beta01")
+    kapt("com.google.dagger:hilt-android-compiler:2.47")
+
+
+    //Room
+    implementation("androidx.room:room-ktx:2.5.2")
+    implementation("androidx.room:room-runtime:2.5.2")
+    ksp("com.google.dagger:hilt-compiler:$hilt")
+
+
+    // Kotlin extensions and Room coroutine support
+    implementation("androidx.room:room-ktx:2.5.2")
+
+    //Retrofit
+    implementation("com.squareup.retrofit2:retrofit:2.9.0")
+
+    //GSON
+    implementation("com.google.code.gson:gson:2.9.0")
+    implementation("com.squareup.retrofit2:converter-gson:2.9.0")
+
 }
