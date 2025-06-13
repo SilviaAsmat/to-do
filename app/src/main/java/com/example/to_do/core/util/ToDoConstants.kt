@@ -7,3 +7,9 @@ object ToDoUseCaseStrings {
 object ToDoListStrings {
     const val CANT_GET_TODOS = "Error: Could not retrieve ToDo Items"
 }
+
+object ContentDescriptions {
+    const val DELETE_TODO_ITEM = "Delete todo item"
+    const val COMPLETE_TODO_ITEM = "Complete todo item"
+    const val ARCHIVE_TODO_ITEM = "Archive todo item"
+}
