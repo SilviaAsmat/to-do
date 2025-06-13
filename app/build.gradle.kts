@@ -4,7 +4,7 @@ plugins {
     alias(libs.plugins.kotlin.compose)
     id("com.google.devtools.ksp")
     id("com.google.dagger.hilt.android")
-    id("kotlin-kapt")
+    //"kotlin-kapt")
 }
 
 android {
@@ -71,15 +71,15 @@ dependencies {
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3")
 
     //Dagger - Hilt
-    val hilt = "2.50"
+    val hilt = "2.56.2"
     implementation("com.google.dagger:hilt-android:$hilt")
-    kapt("androidx.hilt:hilt-compiler:1.1.0-beta01")
-    kapt("com.google.dagger:hilt-android-compiler:2.47")
+    //kapt("androidx.hilt:hilt-compiler:1.1.0-beta01")
+    //kapt("com.google.dagger:hilt-android-compiler:2.47")
 
 
     //Room
-    implementation("androidx.room:room-ktx:2.5.2")
-    implementation("androidx.room:room-runtime:2.5.2")
+    implementation("androidx.room:room-ktx:2.7.1")
+    implementation("androidx.room:room-runtime:2.7.1")
     ksp("com.google.dagger:hilt-compiler:$hilt")
 
 
