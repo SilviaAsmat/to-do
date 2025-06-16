@@ -9,17 +9,15 @@ import com.example.to_do.feature_to_do.data.di.IoDispatcher
 import com.example.to_do.feature_to_do.domain.model.ToDoItem
 import com.example.to_do.feature_to_do.domain.use_case.ToDoUseCaseResult
 import com.example.to_do.feature_to_do.domain.use_case.ToDoUseCases
-import com.example.to_do.feature_to_do.domain.util.ToDoItemOrder
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
 import javax.inject.Inject
-import kotlin.reflect.typeOf
 
 @HiltViewModel
-class ToDoListViewModel@Inject constructor(
+class ToDoListViewModel @Inject constructor(
     private val toDoUseCases: ToDoUseCases,
     @IoDispatcher private val dispatcher: CoroutineDispatcher
 ) : ViewModel() {
